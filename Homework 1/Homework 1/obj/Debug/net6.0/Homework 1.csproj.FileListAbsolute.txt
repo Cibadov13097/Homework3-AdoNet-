@@ -1,0 +1,22 @@
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\bin\Debug\net6.0\Homework 1.exe
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\bin\Debug\net6.0\Homework 1.deps.json
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\bin\Debug\net6.0\Homework 1.runtimeconfig.json
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\bin\Debug\net6.0\Homework 1.dll
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\bin\Debug\net6.0\Homework 1.pdb
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Data.SqlClient.dll
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Data.SqlClient.dll
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\obj\Debug\net6.0\Homework 1.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\obj\Debug\net6.0\Homework 1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\obj\Debug\net6.0\Homework 1.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\obj\Debug\net6.0\Homework 1.AssemblyInfo.cs
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\obj\Debug\net6.0\Homework 1.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\obj\Debug\net6.0\Homework 1.csproj.CopyComplete
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\obj\Debug\net6.0\Homework 1.dll
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\obj\Debug\net6.0\refint\Homework 1.dll
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\obj\Debug\net6.0\Homework 1.pdb
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\obj\Debug\net6.0\Homework 1.genruntimeconfig.cache
+C:\Users\User\Desktop\Study\Code_Academy\homework\AdoNet-Orm\hw1\Homework 1\Homework 1\obj\Debug\net6.0\ref\Homework 1.dll
