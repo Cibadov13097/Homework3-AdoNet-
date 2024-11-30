@@ -17,13 +17,17 @@ namespace Homework1
 
             CRUDservices CRUD = new CRUDservices();
 
-            CRUD.CreateCompany(new Companies("AKKO", 100));
+            //CRUD.CreateCompany(new Companies("AKKO", 100));
 
-            CRUD.CreateWorker(new Workers("Javid", 19, 4500, 1));
+            //CRUD.CreateWorker(new Workers("Javid", 19, 4500, 1,1),new Personal_info("055 564 47 75","Javid@gmail.com"));
 
-            CRUD.EditWorker(1);
+            //CRUD.EditWorker(1);
+
+            CRUD.CreateOfficePrinter(new Office_Printer("Canon", "AP234"));
 
             CRUD.ShowWorkerWithCompany(1);
+
+            CRUD.ShowWorkerWithInfo(1);
         }
     }
 

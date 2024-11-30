@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Homework_1.Models
 {
-    public class Id_card
+    public  class printer_worker
     {
         public int Id { get; set; }
-        public string Id_no { get; set; }
-
-        public int worker_id { get; set; }
+        public int Worker_Id { get; set; }
+        public int Printer_Id { get; set; }
     }
 }

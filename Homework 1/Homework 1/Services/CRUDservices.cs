@@ -31,7 +31,20 @@ namespace Homework_1.Services
             sqlCommand.ExecuteNonQuery();
         }
 
+        public void CreateOfficePrinter(Office_Printer office_Printer)
+        {
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+            string query = "INSERT INTO Office_printer VALUES(@Name,@Model)";
 
+
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+            sqlCommand.Parameters.AddWithValue("@Name",office_Printer.Name);
+            sqlCommand.Parameters.AddWithValue("@Model", office_Printer.Model);
+            sqlCommand.ExecuteNonQuery();
+
+        }
         public void ShowWorkerWithCompany(int id)
         {
             List<Workers> workers = new List<Workers>();
@@ -61,21 +74,58 @@ namespace Homework_1.Services
             }
         }
 
+        public void ShowWorkerWithInfo(int id)
+        {
+            List<Workers> workers = new List<Workers>();
+            string query = "SELECT w.Id, w.Name, w.Age, p.Email,p.Phone_number FROM Workers w JOIN Personal_info p ON p.id = w.Personal_info_Id WHERE w.Id = @id";
 
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@id", id);
+            sqlConnection.Open();
 
-        public void CreateWorker(Workers worker)
+            using (SqlDataReader reader = sqlCommand.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int workerId = reader.GetInt32(0);
+                        string workerName = reader.GetString(1);
+                        int workerAge = reader.GetInt32(2);
+                      
+                        string email=reader.GetString(3);
+                        string phonenumber = reader.GetString(4);
+
+                        Console.WriteLine($"ID: {workerId}, Name: {workerName}, Age: {workerAge}, Email: {email}, Phone: {phonenumber}");
+                    }
+                }
+            }
+        }
+
+        public void CreateWorker(Workers worker,Personal_info personinfo)
         {
             using SqlConnection sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
 
-            string query = "INSERT INTO Workers VALUES(@Name,@Age,@Salary,@Company_id)";
+            string query = "INSERT INTO Workers VALUES(@Name,@Age,@Salary,@Company_id,@Personal_info_id)";
+            string query2 = "INSERT INTO Personal_info VALUES(@Phone_number,@Email)";
+
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            SqlCommand sqlCommand2 = new SqlCommand(query2, sqlConnection);
+
+            sqlCommand2.Parameters.AddWithValue("Phone_number", personinfo.Phone_number);
+            sqlCommand2.Parameters.AddWithValue("Email", personinfo.Email);
+
             sqlCommand.Parameters.AddWithValue("@Name", worker.Name);
             sqlCommand.Parameters.AddWithValue("@Age", worker.Age);
             sqlCommand.Parameters.AddWithValue("@Salary", worker.Salary);
             sqlCommand.Parameters.AddWithValue("@Company_id",worker.Company_id);
-            sqlCommand.ExecuteNonQuery();
+            sqlCommand.Parameters.AddWithValue("@Personal_info_id", worker.Personal_info_id);
 
+            sqlCommand2.ExecuteNonQuery();
+            sqlCommand.ExecuteNonQuery();
+            
         }
 
         public void DeleteWorker(int id)
@@ -149,6 +199,7 @@ namespace Homework_1.Services
             sql.ExecuteNonQuery();
         }
 
+   
 
     }
 }

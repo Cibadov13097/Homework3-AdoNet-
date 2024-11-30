@@ -8,13 +8,14 @@ namespace Homework_1.Models
 {
     public  class Workers
     {
-        public Workers( string name,int age, float salary, int company_id)
+        public Workers( string name,int age, float salary, int company_id,int personal_info_id)
         {
             
             Name = name;
             Age = age;
             Salary = salary;
             Company_id = company_id;
+            Personal_info_id = personal_info_id;
         }
 
         public int Id { get; set; }
@@ -25,5 +26,7 @@ namespace Homework_1.Models
         public float Salary { get; set; }
 
         public int Company_id { get; set; }
+
+        public int Personal_info_id { get; set; }
     }
 }
