@@ -31,6 +31,20 @@ namespace Homework_1.Services
             sqlCommand.ExecuteNonQuery();
         }
 
+        public void WorkersPrinter(Workers worker,Office_Printer printer)
+        {
+            
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+            sqlConnection.Open();
+            string query = "INSERT INTO Office_printer VALUES(@Worker_id,@printer_id)";
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@Worker_id", worker.Id);
+            sqlCommand.Parameters.AddWithValue("@printer_id", printer.Id);
+
+            sqlCommand.ExecuteNonQuery();
+
+        }
         public void CreateOfficePrinter(Office_Printer office_Printer)
         {
             SqlConnection sqlConnection = new SqlConnection(connectionString);
@@ -77,7 +91,7 @@ namespace Homework_1.Services
         public void ShowWorkerWithInfo(int id)
         {
             List<Workers> workers = new List<Workers>();
-            string query = "SELECT w.Id, w.Name, w.Age, p.Email,p.Phone_number FROM Workers w JOIN Personal_info p ON p.id = w.Personal_info_Id WHERE w.Id = @id";
+            string query = "SELECT w.Id, w.Name, w.Age, p.Email,p.Phone_number FROM Workers w JOIN Personal_info p ON p.Workers_id = w.id WHERE w.Id = @id";
 
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
@@ -108,24 +122,28 @@ namespace Homework_1.Services
             using SqlConnection sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
 
-            string query = "INSERT INTO Workers VALUES(@Name,@Age,@Salary,@Company_id,@Personal_info_id)";
-            string query2 = "INSERT INTO Personal_info VALUES(@Phone_number,@Email)";
+            string query = "INSERT INTO Workers VALUES(@Name,@Age,@Salary,@Company_id)";
+            string query2 = "INSERT INTO Personal_info VALUES(@Phone_number,@Email,@Worker_id)";
 
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
             SqlCommand sqlCommand2 = new SqlCommand(query2, sqlConnection);
 
-            sqlCommand2.Parameters.AddWithValue("Phone_number", personinfo.Phone_number);
-            sqlCommand2.Parameters.AddWithValue("Email", personinfo.Email);
 
             sqlCommand.Parameters.AddWithValue("@Name", worker.Name);
             sqlCommand.Parameters.AddWithValue("@Age", worker.Age);
             sqlCommand.Parameters.AddWithValue("@Salary", worker.Salary);
-            sqlCommand.Parameters.AddWithValue("@Company_id",worker.Company_id);
-            sqlCommand.Parameters.AddWithValue("@Personal_info_id", worker.Personal_info_id);
+            sqlCommand.Parameters.AddWithValue("@Company_id", worker.Company_id);
 
-            sqlCommand2.ExecuteNonQuery();
+            sqlCommand2.Parameters.AddWithValue("Phone_number", personinfo.Phone_number);
+            sqlCommand2.Parameters.AddWithValue("Email", personinfo.Email);
+            sqlCommand2.Parameters.AddWithValue("@Worker_id", personinfo.Worker_id);
+
+           
+           
+
+           
             sqlCommand.ExecuteNonQuery();
-            
+            sqlCommand2.ExecuteNonQuery();
         }
 
         public void DeleteWorker(int id)
@@ -199,7 +217,50 @@ namespace Homework_1.Services
             sql.ExecuteNonQuery();
         }
 
-   
+        public void AllowPrinterUse(printer_worker pw)
+        {
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+
+            string query = "INSERT INTO printer_worker VALUES(@printer_id,@worker_id)";
+
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+            sqlCommand.Parameters.AddWithValue("@worker_id", pw.Worker_Id);
+            sqlCommand.Parameters.AddWithValue("@printer_id", pw.Printer_Id);
+
+            sqlCommand.ExecuteNonQuery();
+        }
+
+        public void CheckPrinterAccess(int worker_id)
+        {
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+
+            string query = "SELECT w.name,o.name,o.model FROM Workers w JOIN printer_worker p ON p.worker_id=w.id JOIN office_printer o ON o.id=p.printer_id WHERE @id=w.id";
+            SqlCommand sql = new SqlCommand(query, sqlConnection);
+            sql.Parameters.AddWithValue("@id", worker_id);
+
+            using (SqlDataReader reader = sql.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                     
+                        string workerName = reader.GetString(0);
+                        string printerName = reader.GetString(1);
+                        string printerModel = reader.GetString(2);
+
+                        Console.WriteLine($"WorkerName: {workerName}, PrinterName: {printerName}, PrinterModel: {printerModel}");
+                    }
+                }
+
+            }
+
+
+        }
+
 
     }
 }
